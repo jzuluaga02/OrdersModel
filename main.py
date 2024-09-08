@@ -7,7 +7,7 @@ import logging
 if __name__ == '__main__':
     try:
         # Load and split data
-        PATH = r'C:\Users\Juan Zuluaga\Desktop\OrdersModel\src\data\orders.csv''
+        PATH = r'C:\Users\Juan Zuluaga\Desktop\OrdersModel\src\data\orders.csv'
         data_loader = DataLoader(PATH)
         data = data_loader.load_data()
         X_train, X_val, X_test, y_train, y_val, y_test = data_loader.split_data(data)

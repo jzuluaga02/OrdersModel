@@ -8,6 +8,18 @@ import logging
 import joblib
 
 class ModelTrainer:
+
+    """
+    A class to train and evaluate a machine learning model using a pipeline with preprocessing.
+
+    Attributes:
+        model (ImbPipeline): The machine learning pipeline including preprocessing and classifier.
+        param_grid (dict): Parameter grid for hyperparameter tuning.
+
+    Methods:
+        train(X_train, y_train, X_val, y_val): Trains the model using grid search and evaluates it.
+    """
+
     def __init__(self):
         self.model = ImbPipeline([
             ('preprocessing', Preprocessor()),  # Preprocessing step
@@ -23,6 +35,18 @@ class ModelTrainer:
         }
     
     def train(self, X_train, y_train, X_val, y_val):
+        """
+        Trains the model using grid search and evaluates it on the validation set.
+
+        Args:
+            X_train (pd.DataFrame): Training features.
+            y_train (pd.Series): Training target variable.
+            X_val (pd.DataFrame): Validation features.
+            y_val (pd.Series): Validation target variable.
+
+        Raises:
+            Exception: If an error occurs during model training.
+        """
         try:
             # Grid search with cross-validation
             grid_search = GridSearchCV(estimator=self.model, param_grid=self.param_grid, 

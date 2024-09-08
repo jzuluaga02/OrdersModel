@@ -9,6 +9,17 @@ class FileLoadingError(Exception):
     pass
 
 class DataLoader:
+    """
+    Loads data from a CSV file into features and target variables.
+
+    Args:
+        filepath (str): Path to the CSV file.
+
+    Returns:
+        tuple: A tuple containing:
+            - pd.DataFrame: The features dataset.
+            - pd.Series: The target variable.
+    """
     def __init__(self, file_path):
         self.file_path = file_path
 
